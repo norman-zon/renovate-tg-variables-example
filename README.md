@@ -1,0 +1,1 @@
+# renovate-tg-variables-example
