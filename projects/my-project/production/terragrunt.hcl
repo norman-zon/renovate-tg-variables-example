@@ -3,6 +3,6 @@ terraform {
 }
 
 inputs = {
-    helm_chart1_version = "v1.1.3"
-    helm_chart2_version = "v0.123"
+    nginx_helm_chart_version = "4.2.3"
+    cert_manager_helm_chart_version = "v1.10.1"
 }

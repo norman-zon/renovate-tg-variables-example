@@ -1,18 +1,26 @@
-resource "helm_release" "chart1" {
+variable nginx_helm_chart_version {
+  type        = string
+}
 
-  name       = "chart1"
-  namespace  = "chart1"
+variable cert_manager_helm_chart_version {
+  type        = string
+}
+
+resource "helm_release" "nginx" {
+
+  name       = "nginx"
+  namespace  = "nginx"
   repository = "https://kubernetes.github.io/ingress-nginx"
   chart      = "ingress-nginx"
-  version    = var.helm_chart1_version
+  version    = var.nginx_helm_chart_version
 }
 
 
-resource "helm_release" "chart2" {
+resource "helm_release" "cert_manager" {
 
-  name       = "chart2"
-  namespace  = "chart2"
-  repository = "https://kubernetes.github.io/ingress-nginx"
-  chart      = "ingress-nginx"
-  version    = var.helm_chart2_version
+  name       = "cert-manager"
+  namespace  = "cert-manager"
+  repository = "https://charts.jetstack.io"
+  chart      = "cert-manager"
+  version    = var.cert_manager_helm_chart_version
 }
